@@ -1,0 +1,39 @@
+{
+    "customerId": "",
+    "integrationId": "CLEAN4000",
+    "licensedProductRefId": "5a7bcc890bd5f543f4ce8a13",
+    "status": "In Production",
+    "technologyType": "EIB",
+    "name": "CLEAN-INT2000-Bitcoin-to-Workday-Currency Conversion Data",
+    "description": "integration is upload employee photos form HRMS to Workday twice a month",
+    "source": "5a958ad4d254b315792aeb0d",
+    "target": "5a7bcc890bd5f543f4ce8a13",
+    "changeOnly": true,
+    "outputFormat": "CSV",
+    "apiVersion": "29.2",
+    "delivery": [{
+        "method": "sftp",
+        "ecryptionType": "pgp",
+        "authentication": "userId and password",
+        "environment": "Implementation"
+    }],
+    "attributes": [],
+    "maps": [],
+    "schedule": [{
+        "isActive": true,
+        "frequencyType": "monthly",
+        "monthlyFrequency": {
+            "months": {
+                "eachMonth": true
+            },
+            "recurrenceType": {
+                "datesOfTheMonth": [1, 16]
+            }
+        },
+        "timeZone": "CST",
+        "scheduleStartDate": "2017/01/01",
+        "scheduleEndDate": "2019/12/31"
+    }],
+    "touchPointCount": 1,
+    "integrationDataMapping": []
+}

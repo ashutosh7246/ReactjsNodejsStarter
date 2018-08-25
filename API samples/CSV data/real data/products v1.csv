@@ -1,0 +1,35 @@
+﻿name,productId,stoylLicensed
+Workday,WDAY,TRUE
+John Hancock TRS Enterprise,JHC,FALSE
+Electronic Filing 1099,EFile1099,FALSE
+ADP PayForce,ADPPF,FALSE
+ADP Tax Filing,ADPTF,FALSE
+American Express,AMEX,FALSE
+Canadian Revenue Agency,CRA,FALSE
+Revenue Quebec Agency,RQA,FALSE
+Bank of America,BOA,FALSE
+Bureau of Labor Statistics,BLS,FALSE
+Service Canada ROE,SCROE,FALSE
+Aetna,AETNA,FALSE
+Blue Cross of California,BCCAL,FALSE
+Ceridian Tax Filing,CER,FALSE
+Citibank,CTBK,FALSE
+CyberSource,CYSR,FALSE
+E-verify,EVFY,FALSE
+Fidelity Investments,FDLT,FALSE
+HMRC,HMRC,FALSE
+DeanCare,DCARE,FALSE
+VSP Vision,VSP,FALSE
+Kronos,KRNS,FALSE
+MasterCard,MCARD,FALSE
+LDAP,LDAP,FALSE
+OKTA,OKTA,FALSE
+Safeguard,SFGD,FALSE
+Salesforce,SFDC,FALSE
+Unistaff,USTAF,FALSE
+HealthEquity,HEQTY,FALSE
+Cornerstone OnDemand,CSOD,FALSE
+SAP,SAP,FALSE
+Oracle,ORCL,FALSE
+Concur,CNCR,FALSE
+TALX,TALX,FALSE

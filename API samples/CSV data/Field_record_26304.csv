@@ -1,0 +1,2 @@
+recordId,stoylProductRefId,fieldName,businessObjectName,description,fieldSource,fieldType,relatedBusinessObject,defaultPrompts,category,usageType
+26304,5a381a8f52c57b32c0343469,Position_Id,Position,Returns position Id,Custom Field,Text,,,Custom Fields,Default Areas

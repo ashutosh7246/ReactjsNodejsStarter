@@ -1,0 +1,19 @@
+recordId,stoylProductRefId,stoylProductId,productVersion,updateType,feature,featureDescription,functionalArea,setupEffort,newFunctionalityTitle,newFunctionality,trainingAndTestingImpact,publishDate,tentativeProductionDate,documentationCorrected,documentationCorrectedDate,businessProcesses,processTasks,webServicesName,securityDomains,currentName,formerName,retired,featureJira,Feature Opt-In,Adoption Item(s)
+1,5a381a8f52c57b32c0343469,WDAY,29,release,Workday 29 - Workday Connect,"Workday 29 continues to build on the notification framework, enabling you to schedule content for distribution, including surveys. Workday Connect makes it easier to communicate, collaborate, and share experiences with others across workspaces.
+
+For details, see: Workday Connect What's New Video (https://community.workday.com/articles/327087).","System
+
+Talent Core",Setup Required,Scheduled Distribution Framework,"With Workday 29, we deliver a scheduled distribution framework that enables you to schedule the distribution of single-item notifications such as surveys and reports. We deliver these new tasks (secured to the new Administer Scheduled Distributions domain), enabling you to use this functionality:
+* Copy Scheduled Distribution
+* Create Scheduled Distribution
+* Delete Scheduled Distribution
+* Edit Scheduled Distribution
+* Manage Scheduled Distributions
+
+We also deliver these new reports (secured to the new Administer Scheduled Distributions domain) that display your scheduled distributions:
+* View Scheduled Distribution
+* View Scheduled Distributions by Type",,10/20/2017,11/17/2017,,,,"Copy Scheduled Distribution
+Create Scheduled Distribution
+Delete Scheduled Distribution
+Edit Scheduled Distribution
+Manage Scheduled Distributions",,Administer Scheduled Distributions,,,,WIRE-12432,,
