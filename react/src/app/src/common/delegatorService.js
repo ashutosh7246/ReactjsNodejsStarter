@@ -118,6 +118,11 @@ export class Delegator {
         this._fetch(config);
     }
 
+    _put = (data, url, successCallBack, errorCallBack) => {
+        const config = this._buildConfig(url, data, 'put', successCallBack, errorCallBack);
+        this._fetch(config);
+    }
+
     _get = ( url, successCallback, errorCallback) => {
         const config = this._buildConfig(url, '', 'get', successCallback, errorCallback);
         this._fetch(config);

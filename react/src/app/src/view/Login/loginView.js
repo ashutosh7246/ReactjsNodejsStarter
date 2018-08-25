@@ -48,6 +48,18 @@ export default class LoginView extends React.Component {
                         onClick={this.props.submit.bind(this)}>
                         Submit
                     </button>
+                    <button
+                        type="button"
+                        className='loginBt'
+                        onClick={this.props.register.bind(this)}>
+                        Register
+                    </button>
+                    <button
+                        type="button"
+                        className='loginBt'
+                        onClick={this.props.forgotPassword.bind(this)}>
+                        Forgot Password
+                    </button>
                     <div className='orSepreator'>
                             Or
                     </div>

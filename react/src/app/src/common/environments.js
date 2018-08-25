@@ -4,6 +4,9 @@ module.exports = {
     RESTURL: {
         myprofile: 'myprofile/',
         otp: 'otp/',
+        register: 'register',
+        changePassword: 'changePassword',
+        forgotUserPassword: 'forgotUserPassword',
         verifyOtp: 'verifyOtp',
         resendOtp: 'resendOtp',
         authenticate: 'authenticate',

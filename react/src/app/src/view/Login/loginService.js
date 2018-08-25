@@ -20,14 +20,9 @@ export class LoginService {
         delegator._get(url, successCallback, errorCallback);
     }  
     
-    refreshAccessToken(refreshToken, successCallback, errorCallback) {
+    refreshAccessToken(data, successCallback, errorCallback) {
         var delegator = new Delegator;
-        const data = {
-          grantType: 'accessToken',
-          refreshToken: refreshToken
-        };
-        const url = Environment.SERVER + Environment.RESTURL.authenticationUrl + '?grant_type=refresh_token&refresh_token=' + refreshToken;
-    
+        const url = Environment.SERVER + Environment.RESTURL.myprofile + Environment.RESTURL.authenticate;
         delegator._post(data, url, successCallback, errorCallback);
       }
 }

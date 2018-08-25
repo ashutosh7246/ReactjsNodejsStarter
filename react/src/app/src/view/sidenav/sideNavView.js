@@ -27,6 +27,7 @@ export default class SideNavView extends React.Component {
                         <Link to="/"><div><span className="glyphicon glyphicon-home"></span>Home</div></Link>
                         <Link to="/readme"><div><span className="glyphicon glyphicon-file"></span>Readme</div></Link>
                         <Link to="/contact"><div><span className="glyphicon glyphicon-phone-alt"></span>Contact us</div></Link>
+                        <Link to="/change-password"><div><span className="glyphicon glyphicon-phone-alt"></span>Change Password</div></Link>
                         <div onClick={this.props.logout.bind(this)}><span className="glyphicon glyphicon-log-out"></span><a>Logout</a></div>
                     </div>
                 </div>

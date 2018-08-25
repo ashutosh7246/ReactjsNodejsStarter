@@ -26,8 +26,7 @@ function register(req, res, next) {
     if (!req.body.firstName || req.body.firstName === null || req.body.firstName === '' ||
         !req.body.lastName || req.body.lastName === null || req.body.lastName === '' ||
         !req.body.password || req.body.password === null || req.body.password === '' ||
-        !req.body.email || req.body.email === null || req.body.email === '' ||
-        !req.body.role || req.body.role === null || req.body.role === '') {
+        !req.body.email || req.body.email === null || req.body.email === '' ) {
         res.json({
             success: false,
             msg: 'Ensure username, email, password and role were provided'

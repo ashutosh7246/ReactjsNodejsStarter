@@ -9,12 +9,16 @@ export class AuthRefreshService {
 
     refresh = () => {
           const refreshToken = this.localStorageService.getValue('refreshToken');
-          this.loginService.refreshAccessToken(refreshToken, this.refreshTokenSuccess, this.refreshTokenError);
+          let data = {
+              refreshToken: refreshToken,
+              grantType: 'accessToken'
+          };
+          this.loginService.refreshAccessToken(data, this.refreshTokenSuccess, this.refreshTokenError);
     }
 
     refreshTokenSuccess = (result) => {
-        this.localStorageService.setValue('accessToken', result.access_token);
-        this.localStorageService.setValue('refreshToken', result.refresh_token);
+      this.localStorageService.setValue('accessToken', result.accessToken);
+      this.localStorageService.setValue('refreshToken', result.refreshToken);
         this.lockedForRefresh = false;
         this.delegator.unLockRequest();
         let userData = localStorage.getItem('user');
@@ -31,7 +35,7 @@ export class AuthRefreshService {
         this.delegator.unLockRequestFlag();
         this.lockedForRefresh = false;
         this.localStorageService.clearLocalStorage();
-        // this._router.navigate(['login']);
+        this.props.history.push("/login");
       }
 
       interceptSessionExpired = () => {

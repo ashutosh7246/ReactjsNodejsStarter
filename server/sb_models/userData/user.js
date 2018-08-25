@@ -12,7 +12,7 @@ const UserProfileSchema = new Schema({
     lastName: { type: String, required: true },
     email: { type: String, required: true, lowercase: true, unique: true, validate: fieldValidators.emailValidator },
     password: { type: String, required: true },
-    active: { type: Boolean, required: true, default: false },
+    active: { type: Boolean, required: true, default: true },
 
     isPasswordChanged: { type: Boolean, required: true, default: false },
     invalidLoginAttempts: { type: Number, required: true, default: 0 },

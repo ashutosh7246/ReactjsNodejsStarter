@@ -304,6 +304,14 @@ export default class Login extends React.Component {
     //   this._password.setNativeProps({ text: '' });
   }
 
+  register = () => {
+    this.props.history.push('/register');
+  }
+
+  forgotPassword = () => {
+    this.props.history.push('/forgot-password');
+  }
+
   clearMessage = () => {
     this.setState({
       apiReaspose:false,
@@ -322,6 +330,8 @@ export default class Login extends React.Component {
       resetPassword={this.clearPassword}
       // submit={this.registerClientId}
       submit={this.authenticate}
+      register={this.register}
+      forgotPassword={this.forgotPassword}
       googleLogin={this.handleGoogleLogin}
       facebookLogin={this.handleFacebookLogin}
       clearMessage={this.clearMessage}

@@ -15,6 +15,9 @@ import SideNav from '../../view/sidenav/sidenav.js';
 import Overlay from '../../view/overlay/overlay.js';
 import Footer from '../../view/footer/footer.js';
 import Login from '../../view/Login/login.js';
+import Register from '../../view/register/register.js';
+import ForgotPassword from '../../view/forgotPassword/forgotPassword';
+import ChangePassword from '../../view/changePassword/changePassword.js';
 import OTP from '../../view/otp/otp.js';
 import NoConnection from '../../view/noConnection/noConnection.js';
 import {IsLoggedIn} from "../../common/isLoggedIn.js";
@@ -112,6 +115,11 @@ export default class Routing extends React.Component {
                     path="/" 
                     component={Home}/>
 
+                    <SecureRoute 
+                        exact
+                        path="/change-password" 
+                        component={ChangePassword}/>
+
                 <LoggedIn 
                     exact
                     path="/login" 
@@ -121,6 +129,16 @@ export default class Routing extends React.Component {
                     exact
                     path="/otp" 
                     component={OTP}/>
+
+                    <LoggedIn 
+                        exact
+                        path="/register" 
+                        component={Register}/>
+
+                        <LoggedIn 
+                            exact
+                            path="/forgot-password" 
+                            component={ForgotPassword}/>
                 
                 <Route path='/notfound' component={NotFound}/>
 
