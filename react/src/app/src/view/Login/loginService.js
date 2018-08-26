@@ -18,11 +18,5 @@ export class LoginService {
         var delegator = new Delegator;
         const url = Environment.SERVER + Environment.apiUrl + Environment.RESTURL.loginUrl + '?email=' + user.email + '&getImg=true';
         delegator._get(url, successCallback, errorCallback);
-    }  
-    
-    refreshAccessToken(data, successCallback, errorCallback) {
-        var delegator = new Delegator;
-        const url = Environment.SERVER + Environment.RESTURL.myprofile + Environment.RESTURL.authenticate;
-        delegator._post(data, url, successCallback, errorCallback);
-      }
+    }
 }

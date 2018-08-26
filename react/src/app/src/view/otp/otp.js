@@ -27,7 +27,7 @@ export default class OTP extends React.Component {
   
   componentWillMount() { 
         // Add your tracking ID created from https://analytics.google.com/analytics/web/#home/
-        ReactGA.initialize('UA-103001579-2');
+        ReactGA.initialize('UA-124601541-1');
         // This just needs to be called once since we have no routes in this case.
         ReactGA.pageview('OTP Page');
         // this.setState({isLoading:true});

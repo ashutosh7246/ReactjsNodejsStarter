@@ -145,55 +145,66 @@ export class Delegator {
             }
         } else {
             var utilityService = new UtilityService;
-            const err = response;
-            if (err && err.error_description) {
-              let count = 0;
-              for (const index in this.runningRequests) {
-                if (true) {
-                  count++;
-                }
-              }
-              if ( err.error_description.indexOf('Access token expired') > -1 ) {
-                    let userData = localStorage.getItem('user');
-                    if (userData) {
-                      userData = JSON.parse(userData);
-                      userData['isAccessTokenExpired'] = Base64.btoa('1');
-                      localStorage.setItem('user', JSON.stringify(userData));
-                    } else {
-                        this.localStorageService.setValue('isAccessTokenExpired', 1);
-                    }
-                    utilityService.handleError(err);
-              }
-              if (err.error_description.indexOf('Invalid access token') > -1 &&
-                  this.localStorageService.getValue('isAccessTokenExpired') !== 1) {
-                  utilityService.handleError(err);
-              }
-              if (err.error_description.indexOf('Access token expired') <= -1 &&
-                  this.localStorageService.getValue('isAccessTokenExpired') !== 1 &&
-                  err.error_description.indexOf('Invalid access token') < -1 ) {
-                  delete this.runningRequests[tracker.requestId];
-              }
-              if (err.error_description.indexOf('Invalid refresh token (expired)') > -1) {
-                  this.localStorageService.clearLocalStorage();
-                  // utilityService.navigateToState(this._configuration.STATES.login);
-              }
-              if (err.error_description.indexOf('Access is denied') > -1) {
-                  this._location.back();
-              }
+            const error = response;
+            if (status === 599) {
+                this.unLockRequestFlag();
+                this.localStorageService.clearLocalStorage();
+                this.props.history.push("/login");
+                return
             }
-            if (err.errorDescription === 'Could not open Hibernate Session for transaction; nested exception is org.hibernate.TransactionException: JDBC begin transaction failed: ') { 
-                err.error_description = 'System seems to be under maintenance. Kindly contact your system administrator or try after sometime.';
-              tracker.config.errorCallBack(err);
-            } else {
-                if(this.localStorageService.getValue('isAccessTokenExpired') != 1){
-                    tracker.config.errorCallBack(err);
-                }
+            if (status === 419 && !this.lockedForRefresh) { // Session Time Out
+                this._interceptSessionExpired();
+            } else if (status === 401) {
+                delete this.runningRequests[tracker.requestId];
+                this.localStorageService.clearLocalStorage();
+                tracker.config.errorCallback(error);
+                this.props.history.push("/login");
+            } else if (status === 403) { // User has not access rights (Forbidden)
+                delete this.runningRequests[tracker.requestId];
+                tracker.config.errorCallback(error);
+            } else if(!this.lockedForRefresh) {
+                delete this.runningRequests[tracker.requestId];
+                tracker.config.errorCallback(error);
             }
         }
     }
     
     _handleError = (err, tracker) => {
         tracker.config.errorCallBack(err);
+    }
+
+    _interceptSessionExpired = () => {
+        if (!this.lockedForRefresh) {
+            this.lockedForRefresh = true;
+            // queue the requests
+            this.lockRequest();
+            this._refreshAccessToken();
+        }
+    }
+
+    _refreshAccessToken = () => {
+        const refreshToken = this.localStorageService.getValue('refreshToken');
+        // Send request for new access token
+        let data = {
+            refreshToken: refreshToken,
+            grantType: 'accessToken'
+        };
+        const url = Environment.SERVER + Environment.RESTURL.myprofile + Environment.RESTURL.authenticate;
+        this._post(data, url, this.refreshAccessTokenSuccess, this.refreshAccessTokenError);
+    }
+
+    refreshAccessTokenSuccess = (result) => {
+        this.localStorageService.setValue('accessToken', result.accessToken);
+        this.localStorageService.setValue('refreshToken', result.refreshToken);
+        this.lockedForRefresh = false;
+        this.unLockRequest();
+    }
+
+    refreshAccessTokenError = (error) => {
+        this.unLockRequestFlag();
+        this.lockedForRefresh = false;
+        this.localStorageService.clearLocalStorage();
+        this.props.history.push("/login");
     }
 
     lockRequest = () => {

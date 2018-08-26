@@ -15,12 +15,12 @@ export default class SideNavView extends React.Component {
             <div>
                 <div id="mySidenav" className="sidenav">
                     <div className="navHeader">
-                        <img src="https://cdn-images-1.medium.com/max/1600/1*ypTuZbQNEV1oGkAfn85AUA.png" alt="Smiley face" height="80" width="80" />
+                        <img src={this.props.value.userPhotoURL} alt="Smiley face" height="80" width="80" />
                         <div className='navHeaderTitle'>
-                            ashutosh
+                        {this.props.value.firstName}
                 </div>
                         <div className='navHeaderSubTitle'>
-                            ashutosh.shukla@aspiresoftware.in
+                        {this.props.value.email}
                 </div>
                     </div>
                     <div className="navContent">

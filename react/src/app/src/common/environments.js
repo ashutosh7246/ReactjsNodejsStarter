@@ -17,6 +17,5 @@ module.exports = {
         deleteClientId: 'logout/web'
     },
     secrets: {
-        raffelSecret: ':secret'
     }
 };

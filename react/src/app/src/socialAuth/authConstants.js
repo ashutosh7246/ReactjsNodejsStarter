@@ -1,13 +1,15 @@
 import firebase from 'firebase'
 
-const config = {
-    apiKey: "AIzaSyD-ms1KCj9ea7mNOATIGLCOgIKpxW8687g",
-    authDomain: "help-me-aux-aspire-test.firebaseapp.com",
-    databaseURL: "https://help-me-aux-aspire-test.firebaseio.com",
-    projectId: "help-me-aux-aspire-test",
-    storageBucket: "help-me-aux-aspire-test.appspot.com",
-    messagingSenderId: "71268946504"
-};
+
+// Replace with your configuration from firebase developer console
+var config = {
+    apiKey: "AIzaSyDjsvEXLkx0FVbbA8nIIEtvysvQ-2Iwrzg",
+    authDomain: "reactjsnodejsdemo.firebaseapp.com",
+    databaseURL: "https://reactjsnodejsdemo.firebaseio.com",
+    projectId: "reactjsnodejsdemo",
+    storageBucket: "reactjsnodejsdemo.appspot.com",
+    messagingSenderId: "756918076866"
+  };
 
 firebase.initializeApp(config);
 

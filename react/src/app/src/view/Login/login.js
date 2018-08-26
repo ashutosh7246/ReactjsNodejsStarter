@@ -41,7 +41,7 @@ export default class Login extends React.Component {
   }
 
   handleFacebookLogin() {
-    this.localStorageService.setValue('loginBy', 'facebook');
+    localStorage.setItem('loginBy', 'facebook');
     this.setState({isLoading:true});
     loginWithFacebook()
         .catch( (error) => {
@@ -53,13 +53,13 @@ export default class Login extends React.Component {
               body: error
             }});
             localStorage.removeItem(firebaseAuthKey);
-            this.localStorageService.remove('loginBy');
+            this.localStorageService.clearLocalStorage();
         });
     localStorage.setItem(firebaseAuthKey, "1");
   }
   
   handleGoogleLogin() {
-    this.localStorageService.setValue('loginBy', 'google');
+    localStorage.setItem('loginBy', 'google');
     this.setState({isLoading:true});
           loginWithGoogle()
               .catch( (error) => {
@@ -71,7 +71,7 @@ export default class Login extends React.Component {
                     body: error
                   }});
                   localStorage.removeItem(firebaseAuthKey);
-                  this.localStorageService.remove('loginBy');
+                  this.localStorageService.clearLocalStorage();
               });
           localStorage.setItem(firebaseAuthKey, "1");
   }
@@ -79,7 +79,7 @@ export default class Login extends React.Component {
       componentWillMount() {
         
               // Add your tracking ID created from https://analytics.google.com/analytics/web/#home/
-              ReactGA.initialize('UA-103001579-2');
+              ReactGA.initialize('UA-124601541-1');
               // This just needs to be called once since we have no routes in this case.
               ReactGA.pageview('Login Page');
 
@@ -107,10 +107,11 @@ export default class Login extends React.Component {
                   // store the token
                   localStorage.removeItem(firebaseAuthKey);
                   this.localStorageService.create();
-                  this.localStorageService.setValue('accessToken', user.stsTokenManager.accessToken);
-                  this.localStorageService.setValue('refreshToken', user.stsTokenManager.refreshToken);
-                  this.localStorageService.setValue('userDisplayName', user.displayName);
-                  this.localStorageService.setValue('userEmail', user.email);
+                  this.localStorageService.setValue('loginType', 'social');
+                  this.localStorageService.setValue('email', user.email);
+                  this.localStorageService.setValue('firstName', user.displayName);
+                  this.localStorageService.setValue('accessToken', user.accessToken);
+                  this.localStorageService.setValue('refreshToken', user.refreshToken);
                   this.localStorageService.setValue('userPhotoURL', user.photoURL);
   
                   // here you could authenticate with you web server to get the

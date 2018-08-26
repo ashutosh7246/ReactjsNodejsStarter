@@ -12,6 +12,9 @@ export default class SideNav extends React.Component {
     sideNavService = new SideNavService
     
     state = {
+      email: '',
+      firstName: '',
+      userPhotoURL: '',
       isLoading: false,
       apiReaspose: false,
       message: {
@@ -20,13 +23,44 @@ export default class SideNav extends React.Component {
       },
     }
 
+    
+  
+    componentWillMount() {
+      let email = this.localStorageService.getValue('email');
+      let firstName = this.localStorageService.getValue('firstName');
+      let userPhotoURL = this.localStorageService.getValue('userPhotoURL');
+      
+      if(email){
+        this.setState({email:email});
+      }else{
+        this.setState({email:'react@react.react'});
+      }
+      if(firstName){
+        this.setState({firstName:firstName});
+      }else{
+        this.setState({firstName:'React'});
+      }
+      if(userPhotoURL){
+        this.setState({userPhotoURL:userPhotoURL});
+      }else{
+        this.setState({userPhotoURL:'https://cdn-images-1.medium.com/max/1600/1*ypTuZbQNEV1oGkAfn85AUA.png'});
+      }
+    }
+
   logout = () => {
-    this.setState({isLoading:true});
-    let userId = this.localStorageService.getValue('userId');
-    let user = {
-        userId: userId
-    };
-    this.sideNavService.logoutUser(user, this.logoutUserSuccess, this.logoutUserFailure);
+    let loginBy = localStorage.getItem('loginBy') || this.localStorageService.getValue('loginType');
+    console.log('------------------------>',loginBy);
+    if(loginBy){
+      localStorage.clear();
+      this.props.history.push('/login');
+    }else{
+      this.setState({isLoading:true});
+      let userId = this.localStorageService.getValue('userId');
+      let user = {
+          userId: userId
+      };
+      this.sideNavService.logoutUser(user, this.logoutUserSuccess, this.logoutUserFailure);
+    }
   }
   
     logoutUserSuccess = (result) => {
