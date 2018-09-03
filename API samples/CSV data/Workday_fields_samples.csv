@@ -1,4 +1,0 @@
-recordId,stoylProductRefId,fieldName,businessObjectName,description,fieldSource,fieldType,relatedBusinessObject,defaultPrompts,category,usageType
-1,5a381a8f52c57b32c0343469,-,Global,Returns Dash Character '-',Workday Delivered,Text,rbo1,prompt1,Uncategorized,Default Areas
-2,5a381a8f52c57b32c0343469,fdad,Global,returns fdad,Calculated,Numeric,rbo2,prompt2,Uncategorized,Default Areas
-3,,asdfa,Global,"Returns Comma Character ','",Workday Delivered,Text,rbo3,prompt3,Uncategorized,Default Areas
