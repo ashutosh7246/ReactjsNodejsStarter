@@ -1,14 +1,14 @@
 import firebase from 'firebase'
 
 
-// Replace with your configuration from firebase developer console
+// Replace with your configuration from firebase developer console like below
 var config = {
-    apiKey: "AIzaSyDjsvEXLkx0FVbbA8nIIEtvysvQ-2Iwrzg",
-    authDomain: "reactjsnodejsdemo.firebaseapp.com",
-    databaseURL: "https://reactjsnodejsdemo.firebaseio.com",
-    projectId: "reactjsnodejsdemo",
-    storageBucket: "reactjsnodejsdemo.appspot.com",
-    messagingSenderId: "756918076866"
+    apiKey: "AIzaSyDjsVyXLkx0JIbbA8nVVEtvysvQ-2Iwrzg",
+    authDomain: "demo.firebaseapp.com",
+    databaseURL: "https://demo.firebaseio.com",
+    projectId: "demo",
+    storageBucket: "demo.appspot.com",
+    messagingSenderId: "750198706866"
   };
 
 firebase.initializeApp(config);

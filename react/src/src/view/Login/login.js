@@ -79,7 +79,7 @@ export default class Login extends Component {
       componentWillMount() {
         
               // Add your tracking ID created from https://analytics.google.com/analytics/web/#home/
-              ReactGA.initialize('UA-124601541-1');
+              ReactGA.initialize('UA-216405141-1');
               // This just needs to be called once since we have no routes in this case.
               ReactGA.pageview('Login Page');
 
