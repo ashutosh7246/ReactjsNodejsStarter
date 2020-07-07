@@ -7,7 +7,7 @@
     "connectivity": "^1.0.1",
     "css-loader": "^1.0.0",
     "del-cli": "1.1.0",
-    "electron": "1.7.10",
+    "electron": "9.1.0",
     "electron-google-oauth": "^2.0.0",
     "electron-packager": "10.1.0",
     "eslint": "4.13.1",
